@@ -65,7 +65,7 @@ export const demoItems: DemoItem[] = [
 
 // Utility to trigger ViewTransition
 export const triggerViewTransition = (callback: () => void) => {
-  if ("startViewTransition" in document) {
+  if (isViewTransitionSupported()) {
     (document as any).startViewTransition(callback);
   } else {
     callback();
