@@ -21,6 +21,7 @@ import { Route as ExampleGuitarsGuitarIdRouteImport } from './routes/example.gui
 import { Route as DemoStartServerFuncsRouteImport } from './routes/demo/start.server-funcs'
 import { Route as DemoStartApiRequestRouteImport } from './routes/demo/start.api-request'
 import { Route as DemoFormSimpleRouteImport } from './routes/demo/form.simple'
+import { Route as DemoFormOfficialRouteImport } from './routes/demo/form.official'
 import { Route as DemoFormAddressRouteImport } from './routes/demo/form.address'
 import { Route as DemoApiTanchatRouteImport } from './routes/demo/api.tanchat'
 import { Route as DemoApiNamesRouteImport } from './routes/demo/api.names'
@@ -90,6 +91,11 @@ const DemoFormSimpleRoute = DemoFormSimpleRouteImport.update({
   path: '/demo/form/simple',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DemoFormOfficialRoute = DemoFormOfficialRouteImport.update({
+  id: '/demo/form/official',
+  path: '/demo/form/official',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DemoFormAddressRoute = DemoFormAddressRouteImport.update({
   id: '/demo/form/address',
   path: '/demo/form/address',
@@ -143,6 +149,7 @@ export interface FileRoutesByFullPath {
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/api/tanchat': typeof DemoApiTanchatRoute
   '/demo/form/address': typeof DemoFormAddressRoute
+  '/demo/form/official': typeof DemoFormOfficialRoute
   '/demo/form/simple': typeof DemoFormSimpleRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
@@ -165,6 +172,7 @@ export interface FileRoutesByTo {
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/api/tanchat': typeof DemoApiTanchatRoute
   '/demo/form/address': typeof DemoFormAddressRoute
+  '/demo/form/official': typeof DemoFormOfficialRoute
   '/demo/form/simple': typeof DemoFormSimpleRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
@@ -188,6 +196,7 @@ export interface FileRoutesById {
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/api/tanchat': typeof DemoApiTanchatRoute
   '/demo/form/address': typeof DemoFormAddressRoute
+  '/demo/form/official': typeof DemoFormOfficialRoute
   '/demo/form/simple': typeof DemoFormSimpleRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
@@ -212,6 +221,7 @@ export interface FileRouteTypes {
     | '/demo/api/names'
     | '/demo/api/tanchat'
     | '/demo/form/address'
+    | '/demo/form/official'
     | '/demo/form/simple'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
@@ -234,6 +244,7 @@ export interface FileRouteTypes {
     | '/demo/api/names'
     | '/demo/api/tanchat'
     | '/demo/form/address'
+    | '/demo/form/official'
     | '/demo/form/simple'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
@@ -256,6 +267,7 @@ export interface FileRouteTypes {
     | '/demo/api/names'
     | '/demo/api/tanchat'
     | '/demo/form/address'
+    | '/demo/form/official'
     | '/demo/form/simple'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
@@ -279,6 +291,7 @@ export interface RootRouteChildren {
   DemoApiNamesRoute: typeof DemoApiNamesRoute
   DemoApiTanchatRoute: typeof DemoApiTanchatRoute
   DemoFormAddressRoute: typeof DemoFormAddressRoute
+  DemoFormOfficialRoute: typeof DemoFormOfficialRoute
   DemoFormSimpleRoute: typeof DemoFormSimpleRoute
   DemoStartApiRequestRoute: typeof DemoStartApiRequestRoute
   DemoStartServerFuncsRoute: typeof DemoStartServerFuncsRoute
@@ -376,6 +389,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DemoFormSimpleRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/demo/form/official': {
+      id: '/demo/form/official'
+      path: '/demo/form/official'
+      fullPath: '/demo/form/official'
+      preLoaderRoute: typeof DemoFormOfficialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/demo/form/address': {
       id: '/demo/form/address'
       path: '/demo/form/address'
@@ -447,6 +467,7 @@ const rootRouteChildren: RootRouteChildren = {
   DemoApiNamesRoute: DemoApiNamesRoute,
   DemoApiTanchatRoute: DemoApiTanchatRoute,
   DemoFormAddressRoute: DemoFormAddressRoute,
+  DemoFormOfficialRoute: DemoFormOfficialRoute,
   DemoFormSimpleRoute: DemoFormSimpleRoute,
   DemoStartApiRequestRoute: DemoStartApiRequestRoute,
   DemoStartServerFuncsRoute: DemoStartServerFuncsRoute,
